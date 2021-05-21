@@ -6,7 +6,7 @@ abstract class Entry {
     printList = (): string => this.printListBy("");
 }
 
-class FileEntry extends Entry {
+export class FileEntry extends Entry {
     private name: string;
 
     constructor(name: string) {
@@ -19,7 +19,7 @@ class FileEntry extends Entry {
     printListBy = (prefix: string) => console.log(`${prefix}/${this.name}`);
 }
 
-class DirectoryEntry extends Entry {
+export class DirectoryEntry extends Entry {
     private name: string;
     private directory: Entry[] = [];
 
@@ -37,8 +37,8 @@ class DirectoryEntry extends Entry {
 
     printListBy = (prefix: string) => {
         console.log(`${prefix}/${this.name}`);
-        for(const it of this.directory) {
-            const entry: Entry = it as Entry;
+        for (const it of this.directory) {
+            const entry: Entry = it;
             entry.printListBy(`${prefix}/${this.name}`);
         }
     }
