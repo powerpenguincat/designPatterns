@@ -1,5 +1,6 @@
 abstract class Entry {
     abstract getName(): string;
+    // FIXME: to change protected function.
     abstract printListBy(prefix: string);
 
     printList = (): string => this.printListBy("");
