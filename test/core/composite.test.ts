@@ -1,7 +1,7 @@
 import { DirectoryEntry, FileEntry } from "../../src/core/composite";
 
-describe('', ()=> {
-    it('shoud do this thing', () => {
+describe("容器と中身を同一視し、再起的な構造を作る", ()=> {
+    it("is if you add directories and files.", () => {
         const workspaceDir: DirectoryEntry = new DirectoryEntry("workspace");
         const compositeDir: DirectoryEntry = new DirectoryEntry("composite");
         const testDir1: DirectoryEntry = new DirectoryEntry("test1");
