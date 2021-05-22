@@ -9,6 +9,7 @@ abstract class Entry {
 
     printList = (): void => this.printListBy("");
 
+    // これによりクラス自体をconsole出力することができる
     toString = (): string => `${this.getName()} (${this.getSize()})`;
 }
 
