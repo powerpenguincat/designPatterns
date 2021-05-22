@@ -1,23 +1,33 @@
 import { DirectoryEntry, FileEntry } from "../../src/core/composite";
+import { Dir } from "fs";
 
 describe("容器と中身を同一視し、再起的な構造を作る", ()=> {
     it("is if you add directories and files.", () => {
-        const workspaceDir: DirectoryEntry = new DirectoryEntry("workspace");
-        const compositeDir: DirectoryEntry = new DirectoryEntry("composite");
-        const testDir1: DirectoryEntry = new DirectoryEntry("test1");
-        const testDir2: DirectoryEntry = new DirectoryEntry("test2");
-        workspaceDir.add(compositeDir);
-        workspaceDir.add(testDir1);
-        workspaceDir.add(testDir2);
+        console.log("Making root entries...");
+        const rootDir: DirectoryEntry = new DirectoryEntry("root");
+        const bindDir: DirectoryEntry = new DirectoryEntry("bin");
+        const tmpDir: DirectoryEntry = new DirectoryEntry("tmp");
+        const usrDir: DirectoryEntry = new DirectoryEntry("usr");
+        rootDir.add(bindDir);
+        rootDir.add(tmpDir);
+        rootDir.add(usrDir);
+        bindDir.add(new FileEntry("vi", 10000));
+        bindDir.add(new FileEntry("latex", 20000));
+        rootDir.printList();
 
-        const directory: FileEntry = new FileEntry("Directory.ts");
-        const entity: FileEntry = new FileEntry("Entity.ts");
-        const file: FileEntry = new FileEntry("File.ts");
-        const main: FileEntry = new FileEntry("main.ts");
-        compositeDir.add(directory);
-        compositeDir.add(entity);
-        compositeDir.add(file);
-        compositeDir.add(main);
-        workspaceDir.printList();
+        console.log("");
+        console.log("Making user entries...");
+        const yuki: DirectoryEntry = new DirectoryEntry("yuki");
+        const hanako: DirectoryEntry = new DirectoryEntry("hanako");
+        const tomura: DirectoryEntry = new DirectoryEntry("tomura");
+        usrDir.add(yuki);
+        usrDir.add(hanako);
+        usrDir.add(tomura);
+        yuki.add(new FileEntry("diary.html", 100));
+        yuki.add(new FileEntry("Composite.ts", 200));
+        hanako.add(new FileEntry("memo.tex", 300));
+        tomura.add(new FileEntry("game.doc", 400));
+        tomura.add(new FileEntry("junk.mail", 500));
+        rootDir.printList();
     });
 });
