@@ -16,3 +16,7 @@ yarn add -D eslint-config-prettier
 
 # Install Jest (a unit test module).
 yarn add -D jest eslint-plugin-jest ts-jest @types/jest
+
+1. Do test.
+source ~/.bash_profile
+yarn test
