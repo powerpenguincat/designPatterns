@@ -2,7 +2,7 @@ abstract class Entry {
     abstract getName(): string;
     abstract getSize(): number;
     add = (entry: Entry): Entry => {
-        throw new Error();
+        throw new Error("FileTreatmentException");
     };
     // FIXME: to change protected function.
     abstract printListBy(prefix: string): void;

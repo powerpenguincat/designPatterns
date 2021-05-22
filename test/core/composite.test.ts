@@ -1,5 +1,4 @@
 import { DirectoryEntry, FileEntry } from "../../src/core/composite";
-import { Dir } from "fs";
 
 describe("容器と中身を同一視し、再起的な構造を作る", ()=> {
     it("is if you add directories and files.", () => {
@@ -29,5 +28,10 @@ describe("容器と中身を同一視し、再起的な構造を作る", ()=> {
         tomura.add(new FileEntry("game.doc", 400));
         tomura.add(new FileEntry("junk.mail", 500));
         rootDir.printList();
+    });
+    it("is if you add a file to a file", () => {
+        const diary: FileEntry = new FileEntry("diary.html", 100);
+        // 関数をそのまま呼び出すと評価（expect）前に例外となるため、単独のメソッドとして評価させる
+        expect(() => diary.add(new FileEntry("Composite.ts", 200))).toThrow("FileTreatmentException");
     });
 });
