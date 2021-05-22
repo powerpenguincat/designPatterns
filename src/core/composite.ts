@@ -52,9 +52,6 @@ export class DirectoryEntry extends Entry {
 
     printListBy = (prefix: string): void => {
         console.log(`${prefix}/${this}`);
-        for (const it of this.directory) {
-            const entry: Entry = it;
-            entry.printListBy(`${prefix}/${this.name}`);
-        }
+        this.directory.forEach((it: Entry) => it.printListBy(`${prefix}/${this.name}`));
     }
 }
