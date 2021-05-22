@@ -41,7 +41,7 @@ export class DirectoryEntry extends Entry {
     getName = (): string => this.name;
 
     getSize = (): number => {
-        const addition = (sum: number, value: number) => sum + value;
+        const addition = (sum: number, value: number): number => sum + value;
         return this.directory.map((it: Entry) => it.getSize()).reduce(addition, 0);
     }
 
