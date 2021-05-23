@@ -1,6 +1,7 @@
 import { Canvas } from "./command/Canvas";
 import { Color } from "./command/Color";
 import { Graphics } from "./command/Graphics";
+import { Point } from "./command/Point";
 
 interface Command {
     execute(): void;
