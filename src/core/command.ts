@@ -1,3 +1,7 @@
+import { Canvas } from "./command/Canvas";
+import { Color } from "./command/Color";
+import { Graphics } from "./command/Graphics";
+
 interface Command {
     execute(): void;
 }

@@ -1,4 +1,6 @@
-class Graphics {
+import { Color } from "./Color";
+
+export class Graphics {
     private c: Color;
 
     setColor = (c: Color): void => {
