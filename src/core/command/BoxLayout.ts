@@ -1,0 +1,1 @@
+export type BoxLayout = 'X_AXIS' | 'Y_AXIS' | 'LINE_AXIS' | 'PAGE_AXIS';
