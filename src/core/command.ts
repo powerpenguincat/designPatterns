@@ -3,7 +3,7 @@ import { Color } from "./command/Color";
 import { Graphics } from "./command/Graphics";
 import { Point } from "./command/Point";
 
-interface Command {
+export interface Command {
     execute(): void;
 }
 

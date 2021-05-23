@@ -37,4 +37,8 @@ export class Component {
     show = (): void => {
         console.log(`Show it.`);
     }
+
+    repaint = (): void => {
+        console.log(`Repaint it.`);
+    }
 }

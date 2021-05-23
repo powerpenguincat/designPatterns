@@ -1,27 +1,50 @@
-import { MacroCommand, DrawCanvas } from "../../src/core/command";
+import { MacroCommand, DrawCanvas, DrawCommand, Command } from "../../src/core/command";
 import { JFrame } from "../../src/core/command/JFrame";
 import { JButton } from "../../src/core/command/JButton";
 import { Box } from "../../src/core/command/Box";
+import { ActionEvent, MouseEvent, WindowEvent } from "../../src/core/command/Events";
 
 describe('１個の「もの」として表現する', ()=> {
-    const frame: JFrame = new JFrame("title");
-    const history: MacroCommand = new MacroCommand();
-    const canvas: DrawCanvas = new DrawCanvas(400, 400, history);
-    const clearButton: JButton = new JButton("clear");
+    class Main extends JFrame {
+        private history: MacroCommand = new MacroCommand();
+        private canvas: DrawCanvas = new DrawCanvas(400, 400, this.history);
+        private clearButton: JButton = new JButton("clear");
 
-    frame.addWindowListener(frame);
-    canvas.addMouseMotionListener(frame);
+        constructor(title: string) {
+            super(title);
+            this.addWindowListener(this);
+            this.canvas.addMouseMotionListener(this);
 
-    const buttonBox: Box = new Box("X_AXIS");
-    buttonBox.add(clearButton);
-    const mainBox: Box = new Box("Y_AXIS");
-    mainBox.add(buttonBox);
-    mainBox.add(canvas);
-    frame.getContentPane().add(mainBox);
+            const buttonBox: Box = new Box("X_AXIS");
+            buttonBox.add(this.clearButton);
+            const mainBox: Box = new Box("Y_AXIS");
+            mainBox.add(buttonBox);
+            mainBox.add(this.canvas);
+            this.getContentPane().add(mainBox);
+        
+            this.pack();
+            this.show();
+        }
 
-    frame.pack();
+        actionPerformed = (e: ActionEvent): void => {
+            if (e.getSource as unknown as JButton == this.clearButton) {
+                this.history.clear();
+                this.canvas.repaint();
+            }
+        }
 
-    it('is if you show the frame.', () => {
-        frame.show();
+        mouseDragged = (e: MouseEvent): void => {
+            const cmd: Command = new DrawCommand(this.canvas, e.getPoint());
+            this.history.append(cmd);
+            cmd.execute();
+        }
+
+        windowClosing = (e: WindowEvent): void => {
+            console.log(`System exit.`);
+        }
+    }
+
+    it("is if you show the frame.", () => {
+        new Main("Command Pattern Sample");
     });
 });
