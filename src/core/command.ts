@@ -1,7 +1,7 @@
-import { Canvas } from "./command/Canvas";
-import { Color } from "./command/Color";
-import { Graphics } from "./command/Graphics";
-import { Point } from "./command/Point";
+import { Canvas } from "./java/Canvas";
+import { Color } from "./java/Color";
+import { Graphics } from "./java/Graphics";
+import { Point } from "./java/Point";
 
 export interface Command {
     execute(): void;
