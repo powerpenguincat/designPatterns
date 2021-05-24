@@ -6,6 +6,9 @@ export class Component {
     private _height: number;
     private _backC: Color;
     private _grahics: Graphics = new Graphics();
+    private _components: Component[] = [];
+    private _mouseMotions: Component[] = [];
+    private _windows: Component[] = [];
 
     setSize = (width: number, height: number): void => {
         this._width = width;
@@ -19,15 +22,15 @@ export class Component {
     getGraphics = (): Graphics => this._grahics;
 
     add = (comp: Component): void => {
-        console.log(`Add a component.`);
+        this._components.push(comp);
     }
 
     addMouseMotionListener = (l: Component): void => {
-        console.log(`Add a mouse motion.`);
+        this._mouseMotions.push(l);
     }
 
     addWindowListener = (l: Component): void => {
-        console.log(`Add a window.`);
+        this._windows.push(l);
     }
 
     pack = (): void => {
@@ -35,7 +38,15 @@ export class Component {
     }
 
     show = (): void => {
-        console.log(`Show it.`);
+        console.log(`Show it.`)
+        console.log(`
+        --
+            size: (width: ${this._width}, height: ${this._height})
+            background color: ${this._backC}
+            components: ${this._components}
+            mouseMotions: ${this._mouseMotions}
+            windows: ${this._windows}
+        --`);
     }
 
     repaint = (): void => {
