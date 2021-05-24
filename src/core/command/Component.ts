@@ -43,13 +43,23 @@ export class Component {
         --
             size: (width: ${this._width}, height: ${this._height})
             background color: ${this._backC}
-            components: ${this._components}
-            mouseMotions: ${this._mouseMotions}
-            windows: ${this._windows}
+            components:
+              ${this._components}
+            mouseMotions:
+              ${this._mouseMotions}
+            windows:
+              ${this._windows}
         --`);
     }
 
     repaint = (): void => {
         console.log(`Repaint it.`);
+    }
+
+    toString = (): string => {
+        return `{
+                size: (width: ${this._width}, height: ${this._height})
+                background color: ${this._backC}
+              }`;
     }
 }
