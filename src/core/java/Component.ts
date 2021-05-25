@@ -9,6 +9,7 @@ export class Component {
     private _components: Component[] = [];
     private _mouseMotions: Component[] = [];
     private _windows: Component[] = [];
+    private _b: boolean;
 
     setSize = (width: number, height: number): void => {
         this._width = width;
@@ -18,6 +19,10 @@ export class Component {
     setBackground = (c: Color): void => {
         this._backC = c;
     };
+
+    setEditable = (b: boolean) => {
+        this._b = b;
+    }
 
     getGraphics = (): Graphics => this._grahics;
 
