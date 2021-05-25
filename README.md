@@ -1,5 +1,5 @@
 # designPatterns
-This is a repository to learn design patterns.
+This is a repository to learn design patterns in TypeScript.
 
 0. Make environment.(You don't have to do it. if you do `yarn install`.)
 # Install yarn.
