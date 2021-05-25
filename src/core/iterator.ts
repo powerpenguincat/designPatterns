@@ -22,7 +22,7 @@ export class BookShelf implements Aggregate {
     private last: number = 0;
 
     constructor(maxsize: number) {
-        this.books = [...Array(maxsize)].map(x => new Book(x));
+        this.books = Array(maxsize).map(x => new Book(x));
     }
 
     getBookAt = (index: number): Book => this.books[index];
