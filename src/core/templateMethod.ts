@@ -5,7 +5,7 @@ export abstract class AbstractDisplay {
     readonly display = (): void => {
         this.open();
         [...Array(5)].forEach(x => this.print());
-        this.close;
+        this.close();
     }
 }
 
