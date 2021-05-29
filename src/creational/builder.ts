@@ -1,5 +1,4 @@
 import { FileWriter } from "../core/java/FileWriter";
-import { writer } from "repl";
 import { PrintWriter } from "../core/java/PrintWriter";
 
 export abstract class Builder {
