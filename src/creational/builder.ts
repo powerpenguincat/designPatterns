@@ -18,9 +18,9 @@ export class Director {
     construct = (): void => {
         this.builder.makeTitle("Greeting");
         this.builder.makeString("朝から昼かけて");
-        this.builder.makeItems(["", ""]);
-        this.builder.makeString("");
-        this.builder.makeItems(["", "", "", ""]);
+        this.builder.makeItems(["おはようございます。", "こんにちは。"]);
+        this.builder.makeString("夜に");
+        this.builder.makeItems(["こんばんは。", "おやすみなさい。", "さようなら。"]);
         this.builder.close();
     }
 }
