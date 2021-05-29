@@ -1,4 +1,4 @@
-import { DirectoryEntry, FileEntry } from "../../src/core/composite";
+import { DirectoryEntry, FileEntry } from "../../src/designPattern/core/composite";
 
 describe("容器と中身を同一視し、再起的な構造を作る", ()=> {
     it("is if you add directories and files.", () => {

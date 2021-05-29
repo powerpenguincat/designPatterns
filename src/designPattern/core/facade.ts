@@ -1,7 +1,7 @@
-import { Properties } from "./java/Properties";
-import { FileInputStream } from "./java/FileInputStream";
-import { Writer } from "./java/Writer";
-import { FileWriter } from "./java/FileWriter";
+import { Properties } from "../../object/Properties";
+import { FileInputStream } from "../../object/FileInputStream";
+import { Writer } from "../../object/Writer";
+import { FileWriter } from "../../object/FileWriter";
 
 export class Database {
     private constructor() {

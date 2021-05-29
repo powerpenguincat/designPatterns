@@ -1,4 +1,4 @@
-import { getAnimal } from "../../src/peripheral/nullObject";
+import { getAnimal } from "../../src/designPattern/peripheral/nullObject";
 
 describe("未知の選択が行われても同じように動かす", ()=> {
     it("is if you choose an animal that is on the list.", () => {

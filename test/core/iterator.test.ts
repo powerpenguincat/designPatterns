@@ -1,4 +1,4 @@
-import { BookShelf, Book, Iterator } from "../../src/core/iterator";
+import { BookShelf, Book, Iterator } from "../../src/designPattern/core/iterator";
 
 describe('１つ１つ数え上げる', ()=> {
     it('is if you count four books.', () => {

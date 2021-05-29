@@ -1,4 +1,4 @@
-import { Player, WinningStrategy, ProbStrategy, Hand } from "../../src/core/strategy";
+import { Player, WinningStrategy, ProbStrategy, Hand } from "../../src/designPattern/core/strategy";
 
 describe('', ()=> {
     it('is if Taro fight Hana in the game for ten times.', () => {

@@ -1,4 +1,4 @@
-import { SafeFrame } from "../../src/core/state";
+import { SafeFrame } from "../../src/designPattern/core/state";
 
 describe('状態をクラスとして表現する', ()=> {
     it('is if you count up times.', () => {

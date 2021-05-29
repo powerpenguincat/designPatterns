@@ -1,4 +1,4 @@
-import { AbstractDisplay, CharDisplay, StringDisplay } from "../../src/core/templateMethod";
+import { AbstractDisplay, CharDisplay, StringDisplay } from "../../src/designPattern/core/templateMethod";
 
 describe('具体的な処理をサブクラスにまかせる', ()=> {
     it('is if you display Hello, world.', () => {

@@ -1,11 +1,11 @@
-import { TextField } from "./java/TextField";
-import { TextArea } from "./java/TextArea";
-import { Frame } from "./java/Frame";
-import { Button } from "./java/Button";
-import { ActionEvent } from "./java/Events";
-import { BorderLayout } from "./java/BorderLayout";
-import { Panel } from "./java/Panel";
-import { ActionListener } from "./java/ActionListener";
+import { TextField } from "../../object/TextField";
+import { TextArea } from "../../object/TextArea";
+import { Frame } from "../../object/Frame";
+import { Button } from "../../object/Button";
+import { ActionEvent } from "../../object/Events";
+import { BorderLayout } from "../../object/BorderLayout";
+import { Panel } from "../../object/Panel";
+import { ActionListener } from "../../object/ActionListener";
 
 export interface State {
     doClock(context: Context, hour: number): void;

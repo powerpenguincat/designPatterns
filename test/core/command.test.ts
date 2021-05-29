@@ -1,8 +1,8 @@
-import { MacroCommand, DrawCanvas, DrawCommand, Command } from "../../src/core/command";
-import { JFrame } from "../../src/core/java/JFrame";
-import { JButton } from "../../src/core/java/JButton";
-import { Box } from "../../src/core/java/Box";
-import { ActionEvent, MouseEvent, WindowEvent } from "../../src/core/java/Events";
+import { MacroCommand, DrawCanvas, DrawCommand, Command } from "../../src/designPattern/core/command";
+import { JFrame } from "../../src/object/JFrame";
+import { JButton } from "../../src/object/JButton";
+import { Box } from "../../src/object/Box";
+import { ActionEvent, MouseEvent, WindowEvent } from "../../src/object/Events";
 
 describe('１個の「もの」として表現する', ()=> {
     class Main extends JFrame {

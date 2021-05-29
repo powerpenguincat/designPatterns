@@ -1,4 +1,4 @@
-import { PageMaker } from "../../src/core/facade";
+import { PageMaker } from "../../src/designPattern/core/facade";
 
 describe('インターフェースを少なくする', ()=> {
     it('is if you make a wellcome page.', () => {

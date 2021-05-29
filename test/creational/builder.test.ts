@@ -1,4 +1,4 @@
-import { TextBuilder, Director, HTMLBuilder } from "../../src/creational/builder";
+import { TextBuilder, Director, HTMLBuilder } from "../../src/designPattern/creational/builder";
 
 describe('', ()=> {
     it('is if you want to output a plain text.', () => {

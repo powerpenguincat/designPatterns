@@ -1,4 +1,4 @@
-import { PrinterProxy, Printable } from "../../src/core/proxy";
+import { PrinterProxy, Printable } from "../../src/designPattern/core/proxy";
 
 describe('必要になってから作る', ()=> {
     it('is if you make it that you need.', () => {

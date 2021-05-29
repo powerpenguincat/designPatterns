@@ -1,5 +1,5 @@
-import { FileWriter } from "../core/java/FileWriter";
-import { PrintWriter } from "../core/java/PrintWriter";
+import { FileWriter } from "../../object/FileWriter";
+import { PrintWriter } from "../../object/PrintWriter";
 
 export abstract class Builder {
     abstract makeTitle(title: string): void;

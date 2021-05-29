@@ -1,4 +1,4 @@
-import { Random } from "./java/Random";
+import { Random } from "../../object/Random";
 
 export class Hand {
     static readonly HANDVALUE_GUU: number = 0;
