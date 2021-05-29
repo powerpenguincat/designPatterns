@@ -4,7 +4,7 @@ import { JButton } from "../../src/object/JButton";
 import { Box } from "../../src/object/Box";
 import { ActionEvent, MouseEvent, WindowEvent } from "../../src/object/Events";
 
-describe('１個の「もの」として表現する', ()=> {
+describe('動作を１個の「もの」として表現することでundo,redoなどを表現できる', ()=> {
     class Main extends JFrame {
         private history: MacroCommand = new MacroCommand();
         private canvas: DrawCanvas = new DrawCanvas(400, 400, this.history);

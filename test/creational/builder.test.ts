@@ -1,6 +1,6 @@
 import { TextBuilder, Director, HTMLBuilder } from "../../src/designPattern/creational/builder";
 
-describe('', ()=> {
+describe('複雑なインスタンスを組み立てる', ()=> {
     it('is if you want to output a plain text.', () => {
         const textbuilder: TextBuilder = new TextBuilder();
         const director: Director = new Director(textbuilder);
