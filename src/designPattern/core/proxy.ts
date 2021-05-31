@@ -19,9 +19,7 @@ export class Printer implements Printable {
 
     heavyJob = (msg: string): void => {
         console.log(msg);
-        [...Array(5)].forEach(x => {
-            console.log(".");
-        })
+        [...Array(5)].forEach(x => console.log("."));
         console.log("完了。");
     }
 }
