@@ -1,6 +1,6 @@
 import { Factory, IDCardFactory, Product } from "../../src/designPattern/creational/factory";
 
-describe('継承することで具体的なオブジェクトの生成をサブクラスにまかせる', ()=> {
+describe('継承することで具体的なオブジェクトの関数での生成をサブクラスにまかせる', ()=> {
     it('is if you make many cards.', () => {
         const factory: Factory = new IDCardFactory();
         const card1: Product = factory.create("結城浩");
