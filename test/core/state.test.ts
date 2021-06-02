@@ -1,6 +1,6 @@
 import { SafeFrame } from "../../src/designPattern/core/state";
 
-describe('状態をクラスとして表現する', ()=> {
+describe('オブジェクト自身で状態を管理する', ()=> {
     it('is if you count up times.', () => {
         const frame: SafeFrame = new SafeFrame("State Sampel");
         const nuturalNum = (_: unknown, i: number): number => i;

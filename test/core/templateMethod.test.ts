@@ -1,6 +1,6 @@
 import { AbstractDisplay, CharDisplay, StringDisplay } from "../../src/designPattern/core/templateMethod";
 
-describe('具体的な処理をサブクラスにまかせる', ()=> {
+describe('継承することで具体的な処理をサブクラスにまかせる', ()=> {
     it('is if you display Hello, world.', () => {
         const d1: AbstractDisplay = new CharDisplay("H");
         const d2: AbstractDisplay = new StringDisplay("Hello, world.");
