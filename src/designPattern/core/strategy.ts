@@ -98,9 +98,9 @@ export class ProbStrategy implements Strategy {
     }
 
     getSum = (hv: number): number => {
-        const nuturalNum = (_: unknown, i: number): number => i;
+        const naturalNum = (_: unknown, i: number): number => i;
         const addition = (sum: number, value: number): number => sum + value;
-        return Array(3).fill(0).map(nuturalNum).map(x => this.history[hv][x]).reduce(addition)
+        return Array(3).fill(0).map(naturalNum).map(x => this.history[hv][x]).reduce(addition)
     }
 
     study = (win: boolean): void => {
