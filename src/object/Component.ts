@@ -9,7 +9,8 @@ export class Component {
     private _components: Component[] = [];
     private _mouseMotions: Component[] = [];
     private _windows: Component[] = [];
-    private _b: boolean;
+    private _editable: boolean;
+    private _enable: boolean;
 
     setSize = (width: number, height: number): void => {
         this._width = width;
@@ -21,7 +22,11 @@ export class Component {
     };
 
     setEditable = (b: boolean) => {
-        this._b = b;
+        this._editable = b;
+    }
+
+    setEnabled = (b: boolean) => {
+        this._enable = b;
     }
 
     getGraphics = (): Graphics => this._grahics;
