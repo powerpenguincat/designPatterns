@@ -5,7 +5,7 @@ export class Component {
     private _width: number;
     private _height: number;
     private _backC: Color;
-    private _grahics: Graphics = new Graphics();
+    private _graphics: Graphics = new Graphics();
     private _components: Component[] = [];
     private _mouseMotions: Component[] = [];
     private _windows: Component[] = [];
@@ -29,7 +29,7 @@ export class Component {
         this._enable = b;
     }
 
-    getGraphics = (): Graphics => this._grahics;
+    getGraphics = (): Graphics => this._graphics;
 
     add = (comp: Component): void => {
         this._components.push(comp);
