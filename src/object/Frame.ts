@@ -15,23 +15,23 @@ export class Frame extends Component {
         this.title = title;
     }
 
-    setBackground = (bgColor: Color) => {
+    setBackground = (bgColor: Color): void => {
         this.bgColor = bgColor;
     }
 
-    setLayout = (mgr: BorderLayout) => {
+    setLayout = (mgr: BorderLayout): void => {
         this.mgr = mgr;
     }
 
-    addNorth = (comp: Component) => {
+    addNorth = (comp: Component): void => {
         this.northCompList.push(comp);
     }
 
-    addCenter = (comp: Component) => {
+    addCenter = (comp: Component): void => {
         this.centerCompList.push(comp);
     }
 
-    addSouth = (comp: Component) => {
+    addSouth = (comp: Component): void => {
         this.southCompList.push(comp);
     }
 }
