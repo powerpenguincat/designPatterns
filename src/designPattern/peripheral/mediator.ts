@@ -1,6 +1,6 @@
 import { Button } from "../../object/Button";
 import { TextListener } from "../../object/TextListener";
-import { TextField2 } from "../../object/TextField2";
+import { TextFieldWithText } from "../../object/TextField";
 import { Checkbox } from "../../object/Checkbox";
 import { ItemListener } from "../../object/ItemListener";
 import { CheckboxGroup } from "../../object/CheckboxGroup";
@@ -35,7 +35,7 @@ export class ColleagueButton extends Button implements Colleague {
     }
 }
 
-export class ColleagueTextFeild extends TextField2 implements TextListener, Colleague {
+export class ColleagueTextFeild extends TextFieldWithText implements TextListener, Colleague {
     private mediator: Mediator;
 
     constructor(text: string, columns: number) {
