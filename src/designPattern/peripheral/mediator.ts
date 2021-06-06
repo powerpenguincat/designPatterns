@@ -1,13 +1,11 @@
 import { Button } from "../../object/Button";
-import { TextListener } from "../../object/TextListener";
 import { TextFieldWithText } from "../../object/TextField";
 import { Checkbox } from "../../object/Checkbox";
-import { ItemListener } from "../../object/ItemListener";
 import { CheckboxGroup } from "../../object/CheckboxGroup";
-import { ActionListener } from "../../object/ActionListener";
 import { Frame } from "../../object/Frame";
 import { ActionEvent, ItemEvent } from "../../object/Events";
 import { GridLayout } from "../../object/GridLayout";
+import { TextListener, ItemListener, ActionListener } from "../../object/Listener";
 
 export interface Mediator {
     createColleagues(): void;

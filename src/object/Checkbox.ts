@@ -1,7 +1,5 @@
 import { CheckboxGroup } from "./CheckboxGroup";
 import { Component } from "./Component";
-import { ItemListener } from "./ItemListener";
-import { TextListener } from "./TextListener";
 
 export class Checkbox extends Component {
     private label: string;
