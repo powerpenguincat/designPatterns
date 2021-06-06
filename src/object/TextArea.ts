@@ -11,7 +11,7 @@ export class TextArea extends Component {
         this.columns = columns;
     }
 
-    append = (str: string) => {
+    append = (str: string): void => {
         this.textList.push(str);
     }
 }

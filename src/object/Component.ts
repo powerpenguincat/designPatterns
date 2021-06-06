@@ -21,11 +21,11 @@ export class Component {
         this._backC = c;
     };
 
-    setEditable = (b: boolean) => {
+    setEditable = (b: boolean): void => {
         this._editable = b;
     }
 
-    setEnabled = (b: boolean) => {
+    setEnabled = (b: boolean): void => {
         this._enable = b;
     }
 

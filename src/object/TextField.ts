@@ -9,7 +9,7 @@ export class TextField extends Component {
         this.columns = columns;
     }
 
-    setText = (t: string) => {
+    setText = (t: string): void => {
         this.t = t;
     }
 }
