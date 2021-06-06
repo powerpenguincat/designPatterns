@@ -14,3 +14,6 @@ export class MouseEvent {
 
 export class WindowEvent {
 }
+
+export class ItemEvent {
+}

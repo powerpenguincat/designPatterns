@@ -7,6 +7,8 @@ export class Component {
     private _backC: Color;
     private _graphics: Graphics = new Graphics();
     private _components: Component[] = [];
+    private _texts: Component[] = [];
+    private _items: Component[] = [];
     private _mouseMotions: Component[] = [];
     private _windows: Component[] = [];
     private _editable: boolean;
@@ -33,6 +35,14 @@ export class Component {
 
     add = (comp: Component): void => {
         this._components.push(comp);
+    }
+
+    addTextListener = (l: Component): void => {
+        this._texts.push(l);
+    }
+
+    addItemListener = (l: Component): void => {
+        this._items.push(l);
     }
 
     addMouseMotionListener = (l: Component): void => {
