@@ -1,6 +1,6 @@
 export abstract class Visitor {
-    abstract visit(file: File): void;
-    abstract visit(directory: Directory): void;
+    abstract visit1(file: File): void;
+    abstract visit2(directory: Directory): void;
 }
 
 export interface Element {
@@ -35,8 +35,8 @@ export class File extends Entry {
 
     getSize = (): number => this.size;
 
-    accept = (v: Visitor): void => {
-        v.visit(this);
+    accept1 = (v: Visitor): void => {
+        v.visit1(this);
     }
 }
 
@@ -68,18 +68,18 @@ export class Directory extends Entry {
 
     iterator = (): Iterator => this.dir.iterator();
 
-    accept = (v: Visitor): void => {
-        v.visit(this);
+    accept2 = (v: Visitor): void => {
+        v.visit2(this);
     }
 }
 
 export class ListVisitor extends Visitor {
     private currentdir: string = "";
 
-    visit = (file: File): void => {
+    visit1 = (file: File): void => {
         console.log(`${this.currentdir}/${file}`);
     }
-    visit = (directory: Directory): void => {
+    visit2 = (directory: Directory): void => {
         console.log(`${this.currentdir}/${directory}`);
         const savedir: string = this.currentdir;
         this.currentdir = `${this.currentdir}/${directory.getName()}`
