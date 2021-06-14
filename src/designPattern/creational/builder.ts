@@ -51,8 +51,8 @@ export class TextBuilder extends Builder {
 }
 
 export class HTMLBuilder extends Builder {
-    private filename: string;
-    private writer: PrintWriter;
+    private filename!: string;
+    private writer!: PrintWriter;
 
     makeTitle = (title: string): void => {
         this.filename = title + ".html";

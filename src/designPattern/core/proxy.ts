@@ -32,7 +32,7 @@ export interface Printable {
 
 export class PrinterProxy implements Printable {
     private name: string;
-    private real: Printer;
+    private real!: Printer;
 
     constructor(name: string) {
         this.name = name;

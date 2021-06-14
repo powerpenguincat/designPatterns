@@ -18,7 +18,7 @@ export interface Colleague {
 }
 
 export class ColleagueButton extends Button implements Colleague {
-    private mediator: Mediator;
+    private mediator!: Mediator;
 
     constructor(caption: string) {
         super(caption);
@@ -34,7 +34,7 @@ export class ColleagueButton extends Button implements Colleague {
 }
 
 export class ColleagueTextFeild extends TextFieldWithText implements TextListener, Colleague {
-    private mediator: Mediator;
+    private mediator!: Mediator;
 
     constructor(text: string, columns: number) {
         super(text, columns);

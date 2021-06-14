@@ -17,17 +17,11 @@ export class CharDisplay extends AbstractDisplay {
         this.ch = ch;
     }
 
-    open = (): void => {
-        console.log("<<");
-    }
+    open = (): void => console.log("<<");
 
-    print = (): void => {
-        console.log(this.ch);
-    }
+    print = (): void => console.log(this.ch);
 
-    close = (): void => {
-        console.log(">>");
-    }
+    close = (): void => console.log(">>");
 }
 
 export class StringDisplay extends AbstractDisplay {
@@ -40,17 +34,11 @@ export class StringDisplay extends AbstractDisplay {
         this.width = string.length;
     }
 
-    open = (): void => {
-        this.printLine();
-    }
+    open = (): void => this.printLine();
 
-    print = (): void => {
-        console.log(`|${this.string}|`);
-    }
+    print = (): void => console.log(`|${this.string}|`);
 
-    close = (): void => {
-        this.printLine();
-    }
+    close = (): void => this.printLine();
 
     private printLine = (): void => {
         console.log("+");

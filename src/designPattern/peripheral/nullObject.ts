@@ -1,15 +1,13 @@
 export interface Animal {
-    sound(): string;
+    sound(): string | null;
 }
 
 class Dog implements Animal {
-    sound = (): string => 'bark';
+    sound = (): string | null => 'bark';
 }
 
 class NullAnimal implements Animal {
-    sound = (): string => null;
+    sound = (): string | null => null;
 }
 
-export const getAnimal = (type: string): Animal => {
-    return type === 'dog' ? new Dog() : new NullAnimal();
-};
+export const getAnimal = (type: string | null): Animal => type === 'dog' ? new Dog() : new NullAnimal();

@@ -1,7 +1,7 @@
 export abstract class Display {
     abstract getColumns(): number;
     abstract getRows(): number;
-    abstract getRowText(row: number): string;
+    abstract getRowText(row: number): string | null;
     readonly show = (): void => {
         const naturalNum = (_: unknown, i: number): number => i;
         Array(this.getRows()).fill(0).map(naturalNum).forEach(x => console.log(this.getRowText(x)))
@@ -20,7 +20,7 @@ export class StringDisplay extends Display {
 
     getRows = (): number => 1;
 
-    getRowText = (row: number): string => row === 0 ? this.string : null;
+    getRowText = (row: number): string | null => row === 0 ? this.string : null;
 }
 
 export abstract class Border extends Display {

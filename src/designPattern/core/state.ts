@@ -26,17 +26,11 @@ export class DayState implements State {
         }
     }
 
-    doUse = (context: Context): void =>  {
-        context.recordLog("金庫使用（昼間）");
-    }
+    doUse = (context: Context): void =>  context.recordLog("金庫使用（昼間）");
 
-    doAlarm = (context: Context): void => {
-        context.callSecurityCenter("非常ベル（昼間）");
-    }
+    doAlarm = (context: Context): void => context.callSecurityCenter("非常ベル（昼間）");
 
-    doPhone = (context: Context): void => {
-        context.callSecurityCenter("通常の通話（昼間）");
-    }
+    doPhone = (context: Context): void => context.callSecurityCenter("通常の通話（昼間）");
 
     toString = (): string => "［昼間］";
 }

@@ -47,7 +47,7 @@ export interface Strategy {
 export class WinningStrategy implements Strategy {
     private random: Random;
     private won: boolean = false;
-    private prevHand: Hand;
+    private prevHand!: Hand;
 
     constructor(seed: number) {
         this.random = new Random(seed);
@@ -99,8 +99,9 @@ export class ProbStrategy implements Strategy {
 
     getSum = (hv: number): number => {
         const naturalNum = (_: unknown, i: number): number => i;
+        const naturalNumRange = (range: number): number[] => Array(range).fill(0).map(naturalNum);
         const addition = (sum: number, value: number): number => sum + value;
-        return Array(3).fill(0).map(naturalNum).map(x => this.history[hv][x]).reduce(addition)
+        return naturalNumRange(3).map(x => this.history[hv][x]).reduce(addition)
     }
 
     study = (win: boolean): void => {

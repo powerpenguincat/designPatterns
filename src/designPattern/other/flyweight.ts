@@ -1,6 +1,6 @@
 export class BigChar {
     private charname: string;
-    private fontdata: string;
+    private fontdata!: string;
 
     constructor(charname: string) {
         this.charname = charname;
