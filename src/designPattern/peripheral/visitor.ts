@@ -1,3 +1,23 @@
+import { Iterator } from '../core/iterator';
+
+export class EntryIterator implements Iterator {
+    private strs: Entry[];
+    private index: number;
+
+    constructor(strs: Entry[]) {
+        this.strs = strs;
+        this.index = 0;
+    }
+
+    hasNext = (): boolean => this.index < this.strs.length;
+
+    next = (): Object  => {
+        const str: Entry = this.strs[this.index];
+        this.index++;
+        return str;
+    }
+}
+
 export abstract class Visitor {
     abstract visit1(file: File): void;
     abstract visit2(directory: Directory): void;
@@ -13,7 +33,7 @@ export abstract class Entry implements Element {
     add = (entry: Entry): Entry => {
         throw new Error("FileTreatmentException");
     }
-    iterator = (): Iterator => {
+    iterator = (): EntryIterator => {
         throw new Error("FileTreatmentException")
     }
     accept(v: Visitor): void {
@@ -35,14 +55,14 @@ export class File extends Entry {
 
     getSize = (): number => this.size;
 
-    accept1 = (v: Visitor): void => {
+    accept = (v: Visitor): void => {
         v.visit1(this);
     }
 }
 
 export class Directory extends Entry {
     private name: string;
-    private dir: Entry[] = [];
+    private dir: any[] = [];
 
     constructor(name: string) {
         super();
@@ -53,7 +73,7 @@ export class Directory extends Entry {
 
     getSize = (): number => {
         let size: number = 0;
-        it: Iterator = this.dir.iterator();
+        let it: EntryIterator = this.dir.iterator();
         while (it.hasNext()) {
             const entry: Entry = it.next() as Entry;
             size += entry.getSize();
@@ -66,9 +86,9 @@ export class Directory extends Entry {
         return this;
     }
 
-    iterator = (): Iterator => this.dir.iterator();
+    iterator = (): EntryIterator => this.dir.iterator();
 
-    accept2 = (v: Visitor): void => {
+    accept = (v: Visitor): void => {
         v.visit2(this);
     }
 }
@@ -83,7 +103,7 @@ export class ListVisitor extends Visitor {
         console.log(`${this.currentdir}/${directory}`);
         const savedir: string = this.currentdir;
         this.currentdir = `${this.currentdir}/${directory.getName()}`
-        const it: Iterator = directory.iterator();
+        const it: EntryIterator = directory.iterator();
         while (it.hasNext()) {
             const entry: Entry = it.next() as Entry;
             entry.accept(this);
