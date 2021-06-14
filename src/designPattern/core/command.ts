@@ -19,7 +19,7 @@ export class MacroCommand implements Command {
     };
 
     undo = (): void => {
-        if (!this.commands) {
+        if (!!this.commands) {
             this.commands.pop();
         }
     };
