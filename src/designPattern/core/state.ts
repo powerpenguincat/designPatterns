@@ -5,7 +5,7 @@ import { Button } from "../../object/Button";
 import { ActionEvent } from "../../object/Events";
 import { BorderLayout } from "../../object/BorderLayout";
 import { Panel } from "../../object/Panel";
-import { ActionListener } from "../../object/ActionListener";
+import { ActionListener } from "../../object/Listener";
 
 export interface State {
     doClock(context: Context, hour: number): void;
