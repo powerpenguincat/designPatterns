@@ -1,21 +1,37 @@
 import { Iterator } from '../core/iterator';
 
 export class EntryIterator implements Iterator {
-    private strs: Entry[];
+    private entryList: Entry[];
     private index: number;
 
-    constructor(strs: Entry[]) {
-        this.strs = strs;
+    constructor(entryList: Entry[]) {
+        this.entryList = entryList;
         this.index = 0;
     }
 
-    hasNext = (): boolean => this.index < this.strs.length;
+    hasNext = (): boolean => this.index < this.entryList.length;
 
     next = (): Object  => {
-        const str: Entry = this.strs[this.index];
+        const entry: Entry = this.entryList[this.index];
         this.index++;
-        return str;
+        return entry;
     }
+
+    push = (entry: Entry): void => {
+        this.entryList.push(entry);
+    };
+}
+
+export class EntryList {
+    private list: EntryIterator;
+
+    constructor(list: Entry[]) {
+        this.list = new EntryIterator(list);
+    }
+
+    push = (entry: Entry): void => this.list.push(entry);
+
+    iterator = (): EntryIterator => this.list;
 }
 
 export abstract class Visitor {
@@ -55,14 +71,12 @@ export class File extends Entry {
 
     getSize = (): number => this.size;
 
-    accept = (v: Visitor): void => {
-        v.visit1(this);
-    }
+    accept = (v: Visitor): void => v.visit1(this);
 }
 
 export class Directory extends Entry {
     private name: string;
-    private dir: any[] = [];
+    private dir: EntryList = new EntryList([]);
 
     constructor(name: string) {
         super();
@@ -88,9 +102,7 @@ export class Directory extends Entry {
 
     iterator = (): EntryIterator => this.dir.iterator();
 
-    accept = (v: Visitor): void => {
-        v.visit2(this);
-    }
+    accept = (v: Visitor): void => v.visit2(this);
 }
 
 export class ListVisitor extends Visitor {
