@@ -35,11 +35,15 @@ export abstract class Tray extends Item {
 export abstract class Page {
     title: string;
     author: string;
-    content: [] = [];
+    content: Item[] = [];
 
     constructor(title: string, author: string) {
         this.title = title;
         this.author = author;
+    }
+
+    add = (item: Item): void => {
+        this.content.push(item);
     }
 
     output = (): void => {
@@ -56,7 +60,9 @@ export abstract class Page {
 }
 
 export abstract class Factory {
-    static getFactory = (classname: string): void => {
+    static getFactory = (classname: string): Factory => {
+        const factory = new Factory();
+        return factory;
     }
 
     abstract createLink(caption: string, url: string): Link;
