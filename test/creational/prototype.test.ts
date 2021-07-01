@@ -1,7 +1,7 @@
 import { Manager, UnderlinePen, MessageBox, Product } from "../../src/designPattern/creational/prototype";
 
-describe('すでにある複雑な状態をコピーする', ()=> {
-    it('is if you want easy to create.', () => {
+describe("すでにある複雑な状態をコピーする", ()=> {
+    it("is if you want easy to create.", () => {
         const manager: Manager = new Manager();
         const upen: UnderlinePen = new UnderlinePen("~");
         const mbox: MessageBox = new MessageBox("*");

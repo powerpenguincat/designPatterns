@@ -46,14 +46,14 @@ interface Drawable {
 }
 
 export class DrawCanvas extends Canvas implements Drawable {
-    private color: Color = 'red';
+    private color: Color = "red";
     private radius: number = 6;
     private history: MacroCommand;
 
     constructor(width: number, height: number, history: MacroCommand) {
         super();
         this.setSize(width, height);
-        this.setBackground('white');
+        this.setBackground("white");
         this.history = history;
     }
 

@@ -1,7 +1,7 @@
 import { Player, WinningStrategy, ProbStrategy, Hand } from "../../src/designPattern/core/strategy";
 
-describe('複数のアルゴリズムを管理、委譲することでドメインはそのままにすることができる', ()=> {
-    it('is if Taro fight Hana in the game for ten times.', () => {
+describe("複数のアルゴリズムを管理、委譲することでドメインはそのままにすることができる", ()=> {
+    it("is if Taro fight Hana in the game for ten times.", () => {
         const player1: Player = new Player("Taro", new WinningStrategy(0));
         const player2: Player = new Player("Hana", new ProbStrategy(0));
 

@@ -1,4 +1,4 @@
-import { Iterator } from '../core/iterator';
+import { Iterator } from "../core/iterator";
 
 export class EntryIterator implements Iterator {
     private entryList: Entry[];

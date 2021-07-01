@@ -46,7 +46,7 @@ export class ColleagueTextFeild extends TextFieldWithText implements TextListene
 
     setColleagueEnabled = (enabled: boolean): void => {
         this.setEnabled(enabled);
-        this.setBackground(enabled ? 'white' : 'lightGray');
+        this.setBackground(enabled ? "white" : "lightGray");
     }
 
     textValueChanged = (e: TextEvent): void => {
@@ -84,7 +84,7 @@ export class LoginFrame extends Frame implements ActionListener, Mediator {
 
     constructor(title: string) {
         super(title);
-        this.setBackground('lightGray');
+        this.setBackground("lightGray");
         this.setLayout(new GridLayout(4, 2));
         this.createColleagues();
         this.add(this.checkGuest);

@@ -1,7 +1,7 @@
 import { Directory, File, ListVisitor } from "../../src/designPattern/peripheral/visitor";
 
-describe('データ構造と処理を分離する', ()=> {
-    it('is if you add directories and files.', () => {
+describe("データ構造と処理を分離する", ()=> {
+    it("is if you add directories and files.", () => {
         console.log("Making root entries...");
         const rootdir: Directory = new Directory("root");
         const bindir: Directory = new Directory("bin");

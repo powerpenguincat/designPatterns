@@ -80,7 +80,7 @@ export class SafeFrame extends Frame implements ActionListener, Context {
 
     constructor(title: string) {
         super(title);
-        this.setBackground('lightGray');
+        this.setBackground("lightGray");
         this.setLayout(new BorderLayout());
         this.addNorth(this.textClock);
         this.textClock.setEditable(false);
