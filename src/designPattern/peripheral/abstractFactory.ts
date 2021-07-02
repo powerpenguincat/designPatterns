@@ -50,6 +50,7 @@ export abstract class Page {
         try {
             const filename: string = `${this.title}.html`;
             const writer: Writer = new FileWriter(filename);
+            writer.write(this.makeHTML());
             writer.close();
             console.log(`${filename} を作成しました。`);
         } catch (e) {
