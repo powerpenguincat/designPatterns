@@ -69,3 +69,25 @@ export abstract class Factory {
     abstract createTray(caption: string): Tray;
     abstract createPage(title: string, author: string): Page;
 }
+
+export class ListFactory extends Factory {
+    createLink = (caption: string, url: string): Link => new ListLink(caption, url);
+    createTray = (caption: string): Tray => new ListTray(caption);
+    createPage = (title: string, author: string): Page => new ListPage(title, author);
+}
+
+export class ListLink extends Link {
+    constructor(caption: string, url: string) {
+        super(caption, url);
+    }
+
+    makeHTML = (): string => `  <li><a href=${this.url}>${this.captioin}</a></li>`;
+}
+
+export class ListTray extends Tray {
+    constructor(caption: string) {
+        super(caption);
+    }
+
+    makeHTML = (): string => `<li>${this.captioin}<ul></ul><li>`
+}
