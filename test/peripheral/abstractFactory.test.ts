@@ -2,7 +2,7 @@ import { Factory, Link, Tray, Page } from "../../src/designPattern/peripheral/ab
 
 describe("抽象的な部品を組み合わせて抽象的な製品を作る", ()=> {
     it("is if you make the HTML file.", () => {
-        const args: string = "";
+        const args: string = "ListFactory";
         const factory: Factory = Factory.getFactory(args);
         const maiasa: Link = factory.createLink("毎朝新聞", "https://maiasa.co.jp/");
         const sandoku: Link = factory.createLink("産読新聞", "https://sandoku.co.jp/")

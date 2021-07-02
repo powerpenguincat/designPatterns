@@ -55,14 +55,23 @@ export abstract class Page {
         } catch (e) {
         }
     }
-    
+
     abstract makeHTML(): string;
 }
 
+interface Constructable<T> extends Function {
+    new (...args: any[]): T;
+}
 export abstract class Factory {
     static getFactory = (classname: string): Factory => {
-        const factory = new Factory();
-        return factory;
+        const factories: Constructable<Factory>[] = [];
+        factories.push(ListFactory, TableFactory);
+        const factory = factories.find((e) => e.name === classname);
+        if (factory) {
+            return new factory();
+        } else {
+            throw new Error();
+        }
     }
 
     abstract createLink(caption: string, url: string): Link;
@@ -81,7 +90,7 @@ export class ListLink extends Link {
         super(caption, url);
     }
 
-    makeHTML = (): string => `  <li><a href=${this.url}>${this.captioin}</a></li>`;
+    makeHTML = (): string => `<li><a href="${this.url}">${this.captioin}</a></li>`;
 }
 
 export class ListTray extends Tray {
@@ -89,5 +98,89 @@ export class ListTray extends Tray {
         super(caption);
     }
 
-    makeHTML = (): string => `<li>${this.captioin}<ul></ul><li>`
+    makeHTML = (): string => {
+        const sum = (x: string, y: string): string => x + y;
+        let result: string = "";
+        result += `<li>`;
+        result += `${this.captioin}`;
+        result += `<ul>`;
+        result += this.tray.map(x => x.makeHTML()).reduce(sum);
+        result += `</ul>`;
+        result += `<li>`;
+        return result;
+    };
+}
+
+export class ListPage extends Page {
+    constructor(title: string, author: string) {
+        super(title, author);
+    }
+
+    makeHTML = (): string => {
+        const sum = (x: string, y: string): string => x + y;
+        let result = "";
+        result += `<html><head><title>${this.title}</title></head>`;
+        result += `<body>`;
+        result += `<h1>${this.title}</h1>`;
+        result += `<ul>`;
+        result += this.content.map(x => x.makeHTML()).reduce(sum);
+        result += `</ul>`;
+        result += `<hr><address>${this.author}</address>`;
+        result += `</body></html>`;
+        return result;
+    }
+}
+
+export class TableFactory extends Factory {
+    createLink = (caption: string, url: string): Link => new TableLink(caption, url);
+    createTray = (caption: string): Tray => new TableTray(caption);
+    createPage = (title: string, author: string): Page => new TablePage(title, author);
+}
+
+export class TableLink extends Link {
+    constructor(caption: string, url: string) {
+        super(caption, url);
+    }
+
+    makeHTML = (): string => `<td><a href="${this.url}">${this.captioin}</a></td>`;
+}
+
+export class TableTray extends Tray {
+    constructor(caption: string) {
+        super(caption);
+    }
+
+    makeHTML = (): string => {
+        const sum = (x: string, y: string): string => x + y;
+        let result: string = "";
+        result += `<td>`;
+        result += `<table width="100%" border="1"><tr>`;
+        result += `<td bgcolor="#cccccc" align="center" colspan="${this.tray.length}"><b>${this.captioin}</b></td>`;
+        result += `</tr>`;
+        result += this.tray.map(x => x.makeHTML()).reduce(sum);
+        result += `<tr>`;
+        result += `</tr><table>`;
+        result += `<td>`;
+        return result;
+    }
+}
+
+export class TablePage extends Page {
+    constructor(title: string, author: string) {
+        super(title, author);
+    }
+
+    makeHTML = (): string => {
+        const sum = (x: string, y: string): string => x + y;
+        let result: string = "";
+        result += `<html><head><title>${this.title}</title></head>`;
+        result += `<body>`;
+        result += `<h1>${this.title}</h1>`;
+        result += `<ul>`;
+        result += this.content.map(x => x.makeHTML()).reduce(sum);
+        result += `</ul>`;
+        result += `<hr><address>${this.author}</address>`;
+        result += `</body></html>`;
+        return result;
+    }
 }
