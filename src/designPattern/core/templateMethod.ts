@@ -1,11 +1,11 @@
 export abstract class AbstractDisplay {
-    abstract open(): void;
-    abstract print(): void;
-    abstract close(): void;
+    abstract open(): string;
+    abstract print(): string;
+    abstract close(): string;
     readonly display = (): void => {
-        this.open();
-        [...Array(5)].forEach(x => this.print());
-        this.close();
+        console.log(this.open());
+        [...Array(5)].forEach(x => console.log(this.print()));
+        console.log(this.close());
     }
 }
 
@@ -17,11 +17,11 @@ export class CharDisplay extends AbstractDisplay {
         this.ch = ch;
     }
 
-    open = (): void => console.log("<<");
+    open = (): string => "<<";
 
-    print = (): void => console.log(this.ch);
+    print = (): string => this.ch;
 
-    close = (): void => console.log(">>");
+    close = (): string => ">>";
 }
 
 export class StringDisplay extends AbstractDisplay {
@@ -34,15 +34,18 @@ export class StringDisplay extends AbstractDisplay {
         this.width = string.length;
     }
 
-    open = (): void => this.printLine();
+    open = (): string => this.printLine();
 
-    print = (): void => console.log(`|${this.string}|`);
+    print = (): string => `|${this.string}|`;
 
-    close = (): void => this.printLine();
+    close = (): string => this.printLine();
 
-    private printLine = (): void => {
-        console.log("+");
-        [...Array(this.width)].forEach(x => console.log("-"));
-        console.log("+");
+    private printLine = (): string => {
+        const sum = (x: string, y: string) => x + y;
+        let result: string = "";
+        result += "+";
+        result += [...Array(this.width)].map(x => "-").reduce(sum);
+        result += "+";
+        return result;
     }
 }
