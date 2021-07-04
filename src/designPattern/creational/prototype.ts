@@ -32,14 +32,7 @@ export class MessageBox implements Product {
     }
 
     createClone = (): Product => {
-        let p: Product = null;
-        try {
-            p = null as Product;
-        } catch (e) {
-            console.log(e);
-        }
-
-        return p;
+        return new MessageBox(this.decochar);
     }
 }
 
@@ -59,12 +52,6 @@ export class UnderlinePen implements Product {
     }
 
     createClone = (): Product => {
-        let p: Product = null;
-        try {
-            p = null as Product;
-        } catch (e) {
-            console.log(e);
-        }
-        return p;
-    }    
+        return new UnderlinePen(this.ulchar);
+    }
 }
