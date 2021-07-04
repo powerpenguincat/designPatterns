@@ -26,8 +26,9 @@ export class MessageBox implements Product {
     }
 
     use = (s: string): void => {
+        const sum = (x: string, y: string): string => x + y;
         const length: number = s.length;
-        [...Array(length + 4)].forEach(x => console.log(this.decochar));
+        console.log([...Array(length + 4)].map(x => this.decochar).reduce(sum));
         console.log("");
     }
 
@@ -44,11 +45,12 @@ export class UnderlinePen implements Product {
     }
 
     use = (s: string): void => {
+        const sum = (x: string, y: string): string => x + y;
         const length: number = s.length;
         console.log(`¥${s}¥`);
         console.log("");
-        [...Array(length)].forEach(x => console.log(this.ulchar));
-        console.log("")
+        console.log([...Array(length)].map(x => this.ulchar).reduce(sum));
+        console.log("");
     }
 
     createClone = (): Product => {
